@@ -1,0 +1,110 @@
+{
+  "$schema": "compliance-to-architecture.dictionary.event-driven.v1",
+  "id": "cta:dictionaries:event-driven",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-19",
+  "license": "Apache-2.0",
+  "$comment": "Canonical taxonomy of event-driven source categories required by Constitution Amendment 2. This dictionary describes the SHAPE an implementation must satisfy; it does NOT describe any particular implementation. Any conforming implementation of the Compliance-to-Architecture Framework must declare its own event sources against these categories and prove (via an event registry of its own) that none of them is post-facto.",
+  "amendment": {
+    "id": "CONSTITUTION.md#amendment-2",
+    "rule": "max-30s-buffer",
+    "maxLatencyMsHard": 30000,
+    "description": "End-to-end latency from real-world event to first observable consumer must not exceed 30 seconds. Cron-only ingestion is forbidden as a PRIMARY trigger. A safety-net cron is permitted only when (a) a primary event trigger exists, and (b) the cron is documented as belt-and-suspenders, not the primary path. Documentation, indexing, reconciliation, audit-trail and verdict pipelines are all in-scope."
+  },
+  "phases": {
+    "$comment": "Constitution Amendment 1 — 5-phase lifecycle. Every event must carry its phase tag.",
+    "upstream":     "Change requested but not yet committed (intent declared).",
+    "midstream":    "Mutation in flight (engine running, deploy uploading, payment authorising).",
+    "downstream":   "Mutation committed (verdict written, deploy live, payment captured).",
+    "propagation":  "Downstream consumers notified (cache invalidated, webhook fired, customer emailed).",
+    "compensating": "Failure / rollback (chargeback, deploy rolled back, drift remediated)."
+  },
+  "categories": [
+    {
+      "id": "ci",
+      "name": "Continuous Integration",
+      "primaryTriggerKinds": ["workflow_run", "workflow_job", "push", "pull_request"],
+      "compliantFallbacks": ["none"],
+      "examples": ["build success / failure", "test suite outcomes", "static-analysis check-runs"]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure mutations",
+      "primaryTriggerKinds": ["deploy-event", "iac-apply-event", "config-change-event"],
+      "compliantFallbacks": ["none"],
+      "examples": ["edge deploy success / failure", "DNS record change", "load-balancer rebind"]
+    },
+    {
+      "id": "observability",
+      "name": "Logs / metrics / traces",
+      "primaryTriggerKinds": ["log-stream", "object-storage-event", "queue-consumer"],
+      "compliantFallbacks": ["cron-safety-net (≤60s)"],
+      "examples": ["edge access logs", "worker error spike detection", "zone health probes"]
+    },
+    {
+      "id": "billing",
+      "name": "Billing events",
+      "primaryTriggerKinds": ["payment-provider-webhook"],
+      "compliantFallbacks": ["none"],
+      "examples": ["subscription created / updated / cancelled", "invoice paid / failed", "chargeback / dispute"]
+    },
+    {
+      "id": "api",
+      "name": "API requests + outbox delivery",
+      "primaryTriggerKinds": ["http-request", "queue-consumer", "durable-object-alarm"],
+      "compliantFallbacks": ["cron-safety-net (≤60s)"],
+      "examples": ["inline verdict gate", "customer webhook fan-out", "audit-trail write"]
+    },
+    {
+      "id": "reconciler",
+      "name": "Declared-vs-actual reconciliation",
+      "primaryTriggerKinds": ["deploy-event", "manifest-push-event", "queue-consumer"],
+      "compliantFallbacks": ["cron-safety-net (≤1h)"],
+      "examples": ["CF resource state reconciliation", "GitHub state reconciliation"]
+    },
+    {
+      "id": "docs",
+      "name": "API + spec documentation",
+      "primaryTriggerKinds": ["push-event (paths: routes, types, openapi)", "workflow_run"],
+      "compliantFallbacks": ["none"],
+      "examples": ["OpenAPI regeneration", "MCP tool catalogue", "SDK reference"]
+    },
+    {
+      "id": "compliance",
+      "name": "Regulatory framework updates",
+      "primaryTriggerKinds": ["regulator-webhook (where available)", "framework-manifest-push-event"],
+      "compliantFallbacks": ["cron-safety-net (≤24h)"],
+      "examples": ["new regulator amendment", "framework version bump", "control-catalogue revision"],
+      "$note": "The fallback is intentionally relaxed for this category — most regulators do not expose machine-readable change webhooks; a daily safety-net is the practical floor today."
+    },
+    {
+      "id": "indexing",
+      "name": "Search / native-search reindexing",
+      "primaryTriggerKinds": ["push-event (paths: data dictionaries)", "queue-consumer"],
+      "compliantFallbacks": ["cron-safety-net (≤1h)"],
+      "examples": ["control-catalogue index", "evidence-pack index", "framework-clause index"]
+    },
+    {
+      "id": "customer-cloud",
+      "name": "Customer cloud events (for the implementation that consumes them)",
+      "primaryTriggerKinds": ["customer-eventbridge-rule", "customer-pubsub-subscription", "customer-event-grid", "customer-edge-event-notification"],
+      "compliantFallbacks": ["cron-safety-net (≤5m)"],
+      "examples": ["IAM policy change", "bucket-encryption change", "deployment-status change"],
+      "$note": "Cross-cloud implementations MUST use the customer's own native event bus, never poll their API on a schedule. Polling violates Amendment 2 and the BYOC-vault contract."
+    }
+  ],
+  "requirementsForConformingImplementations": [
+    "Maintain a private event registry that lists every source the implementation owns, mapped to a category in this dictionary.",
+    "For each source, declare: primaryTrigger, fallbackTrigger, maxLatencyMs, phases emitted, consumers.",
+    "Gate CI on the registry: any source with status='violation' past its fix-by date fails the build.",
+    "Publish a digest of the registry's status (counts of compliant / in-flight / violation) so an auditor can verify Amendment 2 conformance without seeing the implementation details."
+  ],
+  "complianceProofSchema": {
+    "$comment": "Reference shape an implementation publishes to prove Amendment 2 conformance. Implementations expose this at /v1/event-registry/digest or equivalent.",
+    "compliantCount": "integer",
+    "inFlightCount": "integer",
+    "violationCount": "integer",
+    "violationFixByDate": "ISO-8601 date — must be in the future when violationCount > 0",
+    "categoryBreakdown": "Record<categoryId, {compliant: int, inFlight: int, violation: int}>"
+  }
+}
