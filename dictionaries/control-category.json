@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:control-category",
+  "displayName": "Control Category",
+  "description": "Canonical categories for reusable controls (Layer 5 of the Compliance-to-Architecture graph). A single control category can satisfy obligations from multiple authorities.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "control-category",
+  "terms": [
+    {
+      "id": "control-category:identity-access",
+      "term": "identity-access",
+      "definition": "Authentication, authorisation, joiner/mover/leaver and privileged-access controls governing who can do what.",
+      "synonyms": ["iam"],
+      "tags": ["iam", "access"]
+    },
+    {
+      "id": "control-category:data-protection",
+      "term": "data-protection",
+      "definition": "Controls protecting personal or sensitive data through classification, minimisation, masking, retention and lawful-basis enforcement.",
+      "tags": ["data"]
+    },
+    {
+      "id": "control-category:encryption",
+      "term": "encryption",
+      "definition": "Cryptographic controls protecting data at rest and in transit, including key generation, storage and rotation.",
+      "tags": ["cryptography"]
+    },
+    {
+      "id": "control-category:logging-monitoring",
+      "term": "logging-monitoring",
+      "definition": "Collection, retention and analysis of telemetry and audit logs sufficient to detect, investigate and prove security or governance events.",
+      "synonyms": ["telemetry", "observability"],
+      "tags": ["detect"]
+    },
+    {
+      "id": "control-category:incident-response",
+      "term": "incident-response",
+      "definition": "Runbooks, on-call, severity classification, regulator/customer notification and post-incident review controls.",
+      "tags": ["response"]
+    },
+    {
+      "id": "control-category:change-management",
+      "term": "change-management",
+      "definition": "Controls governing how code, configuration and infrastructure changes are reviewed, approved, deployed and rolled back.",
+      "tags": ["sdlc"]
+    },
+    {
+      "id": "control-category:vulnerability-management",
+      "term": "vulnerability-management",
+      "definition": "Identification, prioritisation, remediation and verification of vulnerabilities in code, dependencies and infrastructure.",
+      "tags": ["security"]
+    },
+    {
+      "id": "control-category:vendor-management",
+      "term": "vendor-management",
+      "definition": "Due diligence, contractual safeguards and ongoing monitoring of third parties touching in-scope data or services.",
+      "synonyms": ["third-party-management"],
+      "tags": ["supply-chain"]
+    },
+    {
+      "id": "control-category:physical-security",
+      "term": "physical-security",
+      "definition": "Site, facility and device controls protecting against unauthorised physical access, theft or environmental damage.",
+      "tags": ["physical"]
+    },
+    {
+      "id": "control-category:ai-system-governance",
+      "term": "ai-system-governance",
+      "definition": "Lifecycle governance of AI systems: registry, risk classification, evaluation, post-market monitoring, human oversight, model cards.",
+      "tags": ["ai"]
+    },
+    {
+      "id": "control-category:training",
+      "term": "training",
+      "definition": "Role-specific training, awareness and competence controls for personnel performing in-scope activities.",
+      "tags": ["people"]
+    },
+    {
+      "id": "control-category:business-continuity",
+      "term": "business-continuity",
+      "definition": "Continuity, disaster-recovery and operational-resilience controls covering RTO/RPO targets and tested failover.",
+      "synonyms": ["bcp", "dr"],
+      "tags": ["resilience"]
+    }
+  ]
+}

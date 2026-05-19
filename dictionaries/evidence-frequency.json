@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:evidence-frequency",
+  "displayName": "Evidence Frequency",
+  "description": "Cadence at which evidence is produced or refreshed for a control.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "evidence-frequency",
+  "terms": [
+    {
+      "id": "evidence-frequency:continuous",
+      "term": "continuous",
+      "definition": "Produced as a side-effect of the system's normal operation (e.g. streaming logs)."
+    },
+    {
+      "id": "evidence-frequency:daily",
+      "term": "daily",
+      "definition": "Refreshed at least once every 24 hours."
+    },
+    {
+      "id": "evidence-frequency:weekly",
+      "term": "weekly",
+      "definition": "Refreshed at least once every 7 days."
+    },
+    {
+      "id": "evidence-frequency:monthly",
+      "term": "monthly",
+      "definition": "Refreshed at least once each calendar month."
+    },
+    {
+      "id": "evidence-frequency:quarterly",
+      "term": "quarterly",
+      "definition": "Refreshed at least once per calendar quarter."
+    },
+    {
+      "id": "evidence-frequency:annual",
+      "term": "annual",
+      "definition": "Refreshed at least once per calendar year."
+    },
+    {
+      "id": "evidence-frequency:on-event",
+      "term": "on-event",
+      "definition": "Produced when a triggering event occurs (e.g. incident, change, access request)."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:architecture-capability",
+  "displayName": "Architecture Capability",
+  "description": "Concrete software-architecture capabilities that controls require (Layer 7). Implementations may extend; published reference patterns live alongside the source enum.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "architecture-capability",
+  "terms": [
+    {
+      "id": "architecture-capability:rbac-abac-policy-engine",
+      "term": "rbac-abac-policy-engine",
+      "definition": "Centralised role-/attribute-based policy decision point used by every protected resource."
+    },
+    {
+      "id": "architecture-capability:immutable-audit-log",
+      "term": "immutable-audit-log",
+      "definition": "Append-only audit log with tamper-evident hash chain and an export endpoint."
+    },
+    {
+      "id": "architecture-capability:tenant-aware-identity",
+      "term": "tenant-aware-identity",
+      "definition": "Identity layer that carries tenant context on every request and is enforced at the PEP."
+    },
+    {
+      "id": "architecture-capability:approval-workflow",
+      "term": "approval-workflow",
+      "definition": "Programmable multi-party approval gates (e.g. four-eyes) with full audit of approver identity and time."
+    },
+    {
+      "id": "architecture-capability:evidence-export-endpoint",
+      "term": "evidence-export-endpoint",
+      "definition": "Authenticated endpoint that produces evidence artefacts in their canonical schema on demand."
+    },
+    {
+      "id": "architecture-capability:log-retention-policy",
+      "term": "log-retention-policy",
+      "definition": "Policy-driven retention, archival and legal-hold over log stores with verifiable enforcement."
+    },
+    {
+      "id": "architecture-capability:encryption-at-rest",
+      "term": "encryption-at-rest",
+      "definition": "Storage-level encryption with managed keys covering all in-scope data stores."
+    },
+    {
+      "id": "architecture-capability:encryption-in-transit",
+      "term": "encryption-in-transit",
+      "definition": "TLS (or equivalent) on all network paths carrying in-scope data, with modern cipher suites enforced."
+    },
+    {
+      "id": "architecture-capability:key-rotation",
+      "term": "key-rotation",
+      "definition": "Automated key generation, rotation and retirement on a documented cadence."
+    },
+    {
+      "id": "architecture-capability:secret-vault",
+      "term": "secret-vault",
+      "definition": "Centralised, access-audited store for secrets, credentials and signing keys."
+    },
+    {
+      "id": "architecture-capability:incident-runbook",
+      "term": "incident-runbook",
+      "definition": "Executable runbooks for incident detection, classification, response and post-incident review."
+    },
+    {
+      "id": "architecture-capability:ai-system-registry",
+      "term": "ai-system-registry",
+      "definition": "Inventory of AI systems with lifecycle state, risk classification, owner and required disclosures."
+    },
+    {
+      "id": "architecture-capability:model-card-publisher",
+      "term": "model-card-publisher",
+      "definition": "Pipeline that publishes structured model cards on release and on material change."
+    },
+    {
+      "id": "architecture-capability:drift-detector",
+      "term": "drift-detector",
+      "definition": "Production monitor for data, concept or performance drift, with documented thresholds and response."
+    },
+    {
+      "id": "architecture-capability:dlp-redaction",
+      "term": "dlp-redaction",
+      "definition": "Data-loss-prevention or redaction at egress paths for in-scope sensitive data."
+    },
+    {
+      "id": "architecture-capability:sso-mfa",
+      "term": "sso-mfa",
+      "definition": "Federated single-sign-on with enforced multi-factor authentication for all privileged or in-scope access."
+    },
+    {
+      "id": "architecture-capability:scim-provisioning",
+      "term": "scim-provisioning",
+      "definition": "Automated joiner/mover/leaver lifecycle via SCIM or equivalent identity provisioning."
+    },
+    {
+      "id": "architecture-capability:byok-byoc",
+      "term": "byok-byoc",
+      "definition": "Customer-controlled key (BYOK) or cloud (BYOC) options for in-scope data at rest."
+    },
+    {
+      "id": "architecture-capability:data-lineage",
+      "term": "data-lineage",
+      "definition": "Recorded provenance of data flows from source through processing to consumer, queryable for audit."
+    }
+  ]
+}

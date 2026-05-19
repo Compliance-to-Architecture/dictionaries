@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:evidence-type",
+  "displayName": "Evidence Type",
+  "description": "Canonical evidence kinds (16 total: 12 baseline + 4 AI/ops specialisations). Each kind has a JSON Schema under packages/ontology/schemas/<kind>.schema.json that validates the artefact body.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "evidence-type",
+  "terms": [
+    {
+      "id": "evidence-type:policy",
+      "term": "policy",
+      "definition": "An approved, published statement of intent and rules adopted by the organisation.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:procedure",
+      "term": "procedure",
+      "definition": "A documented sequence of steps for performing an activity that implements one or more policies.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:log",
+      "term": "log",
+      "definition": "Machine-generated record of an event with timestamp, actor, action and outcome.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:report",
+      "term": "report",
+      "definition": "A periodic or ad-hoc document summarising measurements, findings or status for stakeholders.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:screenshot",
+      "term": "screenshot",
+      "definition": "A point-in-time image of a system's state, used as evidence of configuration or output.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:attestation",
+      "term": "attestation",
+      "definition": "A signed declaration by a named role that a stated condition is true at a stated time.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:configuration",
+      "term": "configuration",
+      "definition": "A captured configuration export (e.g. policy-as-code, IaC, dashboard config) proving the state of a control.",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "evidence-type:training-record",
+      "term": "training-record",
+      "definition": "Per-individual evidence of completed training, including curriculum, score and completion date.",
+      "synonyms": ["training_record"],
+      "tags": ["baseline", "people"]
+    },
+    {
+      "id": "evidence-type:incident-record",
+      "term": "incident-record",
+      "definition": "Documented record of an incident: detection, classification, response actions, root cause and lessons.",
+      "synonyms": ["incident_record"],
+      "tags": ["baseline", "response"]
+    },
+    {
+      "id": "evidence-type:fria",
+      "term": "fria",
+      "definition": "Fundamental Rights Impact Assessment for high-risk AI systems (EU AI Act Art. 27).",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 27" }
+      ],
+      "tags": ["baseline", "ai"]
+    },
+    {
+      "id": "evidence-type:dpia",
+      "term": "dpia",
+      "definition": "Data Protection Impact Assessment for processing likely to result in high risk to data subjects (GDPR Art. 35).",
+      "references": [
+        { "authorityId": "gdpr@2016-679", "clause": "Art. 35" }
+      ],
+      "tags": ["baseline", "privacy"]
+    },
+    {
+      "id": "evidence-type:contract",
+      "term": "contract",
+      "definition": "Executed agreement (data-processing addendum, SCC, vendor contract) governing in-scope obligations.",
+      "tags": ["baseline", "legal"]
+    },
+    {
+      "id": "evidence-type:model-card",
+      "term": "model-card",
+      "definition": "Structured disclosure of an AI model: intended use, training data summary, evaluation results, limitations, owner.",
+      "tags": ["ai-ops", "ai"]
+    },
+    {
+      "id": "evidence-type:data-card",
+      "term": "data-card",
+      "definition": "Structured disclosure of a dataset: source, collection method, processing steps, known biases, allowed use.",
+      "tags": ["ai-ops", "ai"]
+    },
+    {
+      "id": "evidence-type:audit-trail-export",
+      "term": "audit-trail-export",
+      "definition": "Tamper-evident export of an audit log segment with hash chain and time bounds.",
+      "tags": ["ai-ops", "assurance"]
+    },
+    {
+      "id": "evidence-type:access-review",
+      "term": "access-review",
+      "definition": "Periodic certification of who has which privileges on in-scope systems, with attestation by a named reviewer.",
+      "tags": ["ai-ops", "iam"]
+    }
+  ]
+}

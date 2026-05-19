@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:actor-role",
+  "displayName": "AI Actor Role",
+  "description": "Canonical AI value-chain actor roles, aligned with EU AI Act terminology and reused across AI-specific frameworks.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "actor-role",
+  "terms": [
+    {
+      "id": "actor-role:provider",
+      "term": "provider",
+      "definition": "An entity that develops an AI system or has it developed and places it on the market or puts it into service under its own name or trademark.",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 3(3)" }
+      ],
+      "tags": ["ai"]
+    },
+    {
+      "id": "actor-role:deployer",
+      "term": "deployer",
+      "definition": "An entity using an AI system under its authority, except where the AI system is used in the course of a personal non-professional activity.",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 3(4)" }
+      ],
+      "tags": ["ai"]
+    },
+    {
+      "id": "actor-role:importer",
+      "term": "importer",
+      "definition": "An entity established or located in the Union that places on the market an AI system bearing the name or trademark of a third-country entity.",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 3(6)" }
+      ],
+      "tags": ["ai"]
+    },
+    {
+      "id": "actor-role:distributor",
+      "term": "distributor",
+      "definition": "An entity in the supply chain, other than the provider or importer, that makes an AI system available on the Union market.",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 3(7)" }
+      ],
+      "tags": ["ai"]
+    },
+    {
+      "id": "actor-role:authorized-representative",
+      "term": "authorized-representative",
+      "definition": "A natural or legal person established in the Union appointed in writing by a provider to perform obligations on its behalf.",
+      "references": [
+        { "authorityId": "eu-ai-act@2024-1689", "clause": "Art. 3(5)" }
+      ],
+      "tags": ["ai"]
+    }
+  ]
+}

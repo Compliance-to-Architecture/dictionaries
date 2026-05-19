@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:authority-category",
+  "displayName": "Authority Category",
+  "description": "Categories of regulatory or normative authority that can issue obligations (Layer 1).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "authority-category",
+  "terms": [
+    {
+      "id": "authority-category:ai-regulation",
+      "term": "ai-regulation",
+      "definition": "Statutes or regulations specifically governing AI systems (e.g. EU AI Act)."
+    },
+    {
+      "id": "authority-category:data-protection",
+      "term": "data-protection",
+      "definition": "Laws governing the processing of personal data and the rights of data subjects (e.g. GDPR, UK GDPR, CCPA, LGPD)."
+    },
+    {
+      "id": "authority-category:information-security",
+      "term": "information-security",
+      "definition": "Standards and regulations covering the security of information assets (e.g. ISO/IEC 27001)."
+    },
+    {
+      "id": "authority-category:financial-services",
+      "term": "financial-services",
+      "definition": "Regulation specific to financial-services entities (e.g. DORA, PCI DSS, supervisory rules)."
+    },
+    {
+      "id": "authority-category:healthcare",
+      "term": "healthcare",
+      "definition": "Regulation specific to health data and healthcare providers (e.g. HIPAA)."
+    },
+    {
+      "id": "authority-category:education",
+      "term": "education",
+      "definition": "Regulation specific to education providers and learner data."
+    },
+    {
+      "id": "authority-category:cybersecurity",
+      "term": "cybersecurity",
+      "definition": "Cybersecurity-specific regulation and supervisory expectations (e.g. NIS2, NIST CSF)."
+    },
+    {
+      "id": "authority-category:sector-specific",
+      "term": "sector-specific",
+      "definition": "Authority bound to a particular sector outside the categories above."
+    },
+    {
+      "id": "authority-category:industry-standard",
+      "term": "industry-standard",
+      "definition": "Voluntary or contractually-required industry standards (e.g. ISO/IEC 42001, SOC 2)."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:reason-code",
+  "displayName": "Reason Code",
+  "description": "Stable machine-readable reasons for engine decisions: applicability outcomes, allow/deny outcomes, evidence acceptance/rejection. Used in audit-trail events so downstream consumers can filter and aggregate without parsing free text.",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "reason-code",
+  "terms": [
+    {
+      "id": "reason-code:applicability.in-scope",
+      "term": "applicability.in-scope",
+      "definition": "Subject satisfies an applicability rule and the linked obligations are triggered."
+    },
+    {
+      "id": "reason-code:applicability.out-of-scope",
+      "term": "applicability.out-of-scope",
+      "definition": "Subject does not satisfy any applicability rule for the authority in question."
+    },
+    {
+      "id": "reason-code:applicability.exempted",
+      "term": "applicability.exempted",
+      "definition": "Subject would otherwise be in scope but matches an explicit exemption clause."
+    },
+    {
+      "id": "reason-code:applicability.needs-legal-review",
+      "term": "applicability.needs-legal-review",
+      "definition": "Applicability cannot be decided deterministically by the rule pack and is escalated to legal review."
+    },
+    {
+      "id": "reason-code:applicability.high-risk",
+      "term": "applicability.high-risk",
+      "definition": "Subject satisfies an applicability rule that classifies it as high-risk (e.g. EU AI Act Annex III)."
+    },
+    {
+      "id": "reason-code:evidence.missing",
+      "term": "evidence.missing",
+      "definition": "Required evidence for an obligation or control has not been provided."
+    },
+    {
+      "id": "reason-code:evidence.stale",
+      "term": "evidence.stale",
+      "definition": "Required evidence exists but is older than the declared frequency window."
+    },
+    {
+      "id": "reason-code:evidence.invalid-schema",
+      "term": "evidence.invalid-schema",
+      "definition": "Provided evidence does not validate against the JSON Schema for its declared type."
+    },
+    {
+      "id": "reason-code:evidence.accepted",
+      "term": "evidence.accepted",
+      "definition": "Provided evidence validates and satisfies the linked obligation or control."
+    },
+    {
+      "id": "reason-code:authz.allow",
+      "term": "authz.allow",
+      "definition": "Cerbos PDP returned ALLOW for the requested action on the requested resource."
+    },
+    {
+      "id": "reason-code:authz.deny.tenant-mismatch",
+      "term": "authz.deny.tenant-mismatch",
+      "definition": "Cerbos PDP returned DENY because the principal's tenant does not match the resource tenant."
+    },
+    {
+      "id": "reason-code:authz.deny.role",
+      "term": "authz.deny.role",
+      "definition": "Cerbos PDP returned DENY because the principal does not hold a required role or derived role."
+    },
+    {
+      "id": "reason-code:authz.deny.region",
+      "term": "authz.deny.region",
+      "definition": "Cerbos PDP returned DENY because the principal's region does not match the resource region."
+    },
+    {
+      "id": "reason-code:rule-pack.deprecated-rule",
+      "term": "rule-pack.deprecated-rule",
+      "definition": "Decision evaluated a rule marked deprecated; output is provisional pending rule-pack upgrade."
+    },
+    {
+      "id": "reason-code:rule-pack.version-mismatch",
+      "term": "rule-pack.version-mismatch",
+      "definition": "Decision could not run because the tenant's pinned rule-pack version is not available."
+    }
+  ]
+}

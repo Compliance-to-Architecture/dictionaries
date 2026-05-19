@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "regunav.dictionary.v1",
+  "id": "regunav:dictionary:obligation-category",
+  "displayName": "Obligation Category",
+  "description": "Canonical categories for framework-neutral obligations (Layer 4 of the Compliance-to-Architecture graph).",
+  "version": "1.0.0",
+  "publishedAt": "2026-05-15",
+  "category": "obligation-category",
+  "terms": [
+    {
+      "id": "obligation-category:privacy",
+      "term": "privacy",
+      "definition": "Protect personal data and the rights of data subjects (access, rectification, erasure, portability, restriction, objection).",
+      "synonyms": ["data-protection"],
+      "tags": ["personal-data", "rights"]
+    },
+    {
+      "id": "obligation-category:security",
+      "term": "security",
+      "definition": "Preserve confidentiality, integrity and availability of information and systems against unauthorised access, alteration or destruction.",
+      "tags": ["cia"]
+    },
+    {
+      "id": "obligation-category:ai-risk",
+      "term": "ai-risk",
+      "definition": "Identify, assess and mitigate risks created by AI systems across their lifecycle, including foreseeable misuse.",
+      "tags": ["ai", "risk"]
+    },
+    {
+      "id": "obligation-category:incident-response",
+      "term": "incident-response",
+      "definition": "Detect, contain, eradicate, recover from and report incidents affecting in-scope systems or data.",
+      "tags": ["operations"]
+    },
+    {
+      "id": "obligation-category:vendor-risk",
+      "term": "vendor-risk",
+      "definition": "Assess, contract for and monitor third parties whose services touch in-scope data, systems or processes.",
+      "synonyms": ["third-party-risk"],
+      "tags": ["supply-chain"]
+    },
+    {
+      "id": "obligation-category:data-governance",
+      "term": "data-governance",
+      "definition": "Define ownership, classification, quality, retention and lawful basis for data used by the organisation and its systems.",
+      "tags": ["data"]
+    },
+    {
+      "id": "obligation-category:human-oversight",
+      "term": "human-oversight",
+      "definition": "Provide effective human oversight of automated and AI-driven decisions, including the ability to intervene or override.",
+      "tags": ["ai", "governance"]
+    },
+    {
+      "id": "obligation-category:transparency",
+      "term": "transparency",
+      "definition": "Disclose information about systems, decisions and processing in a form intelligible to the affected party.",
+      "tags": ["ai", "disclosure"]
+    },
+    {
+      "id": "obligation-category:training",
+      "term": "training",
+      "definition": "Ensure personnel performing in-scope activities have appropriate competence, role-specific training and awareness.",
+      "tags": ["people"]
+    },
+    {
+      "id": "obligation-category:audit",
+      "term": "audit",
+      "definition": "Maintain records and produce evidence sufficient for internal or external verification of conformance.",
+      "tags": ["assurance"]
+    },
+    {
+      "id": "obligation-category:continuity",
+      "term": "continuity",
+      "definition": "Ensure resilience of critical operations against disruption, including ICT third-party concentration and recovery objectives.",
+      "synonyms": ["operational-resilience", "business-continuity"],
+      "tags": ["resilience"]
+    }
+  ]
+}
